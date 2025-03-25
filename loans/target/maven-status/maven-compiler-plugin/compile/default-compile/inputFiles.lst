@@ -1,0 +1,16 @@
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/LoansApplication.java
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/audit/AuditAwareImpl.java
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/constants/LoansConstants.java
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/controller/LoansController.java
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/dto/ErrorResponseDto.java
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/dto/LoansDto.java
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/dto/ResponseDto.java
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/entity/BaseEntity.java
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/entity/Loans.java
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/exception/GlobalExceptionHandler.java
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/exception/LoanAlreadyExistsException.java
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/exception/ResourceNotFoundException.java
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/mapper/LoansMapper.java
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/repository/LoansRepository.java
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/service/ILoansService.java
+/Users/diogo/IdeaProjects/microservices/loans/src/main/java/com/eazybytes/loans/service/impl/LoansServiceImpl.java
