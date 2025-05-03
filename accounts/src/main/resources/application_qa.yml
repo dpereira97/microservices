@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+build:
+  version: "2.0"
+
+
+accounts:
+  message: "QA"
+  contactDetails:
+    name: "testname - qa"
+    email: "testemail - qa"
+  onCallSupport:
+    - 789
+    - 111
