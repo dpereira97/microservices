@@ -1,0 +1,12 @@
+build:
+  version: "3.0"
+
+
+accounts:
+  message: "Welcome"
+  contactDetails:
+    name: "testenome"
+    email: "testemail"
+  onCallSupport:
+    - 123
+    - 456
