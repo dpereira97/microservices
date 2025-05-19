@@ -45,10 +45,10 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
-		</dependency>
+		</dependency>-->
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -74,7 +74,7 @@
 				<version>3.4.5</version>
 				<configuration>
 					<to>
-						<image>dpereira97/${project.artifactId}:s6</image>
+						<image>dpereira97/${project.artifactId}:s7</image>
 					</to>
 				</configuration>
 			</plugin>
