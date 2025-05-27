@@ -46,7 +46,7 @@ services:
       service: microservice-db-config
 
   accounts:
-    image: "dpereira97/accounts:s8"
+    image: "dpereira97/accounts:s9"
     container_name: accounts-ms
     ports:
       - "8080:8080"
@@ -63,7 +63,7 @@ services:
       service: microservice-eureka-config
 
   loans:
-    image: "dpereira97/loans:s8"
+    image: "dpereira97/loans:s9"
     container_name: loans-ms
     ports:
       - "8090:8090"
@@ -80,7 +80,7 @@ services:
       SPRING_DATASOURCE_URL: "jdbc:mysql://loansdb:3306/loansdb"
 
   cards:
-    image: "dpereira97/cards:s8"
+    image: "dpereira97/cards:s9"
     container_name: cards-ms
     ports:
       - "9000:9000"
@@ -97,7 +97,7 @@ services:
       SPRING_DATASOURCE_URL: "jdbc:mysql://cardsdb:3306/cardsdb"
 
   configserver:
-    image: "dpereira97/configserver:s8"
+    image: "dpereira97/configserver:s9"
     container_name: configserver-ms
     ports:
       - "8071:8071"
@@ -115,7 +115,7 @@ services:
       service: microservice-base-config
 
   eurekaserver:
-    image: "dpereira97/eurekaserver:s8"
+    image: "dpereira97/eurekaserver:s9"
     container_name: eurekaserver-ms
     ports:
       - "8070:8070"

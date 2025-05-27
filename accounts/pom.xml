@@ -131,7 +131,7 @@
 				<version>3.4.5</version>
 				<configuration>
 					<to>
-						<image>dpereira97/${project.artifactId}:s8</image>
+						<image>dpereira97/${project.artifactId}:s9</image>
 					</to>
 				</configuration>
 			</plugin>
