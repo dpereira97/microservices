@@ -6,6 +6,7 @@ import com.eazybytes.accounts.dto.CustomerDto;
 import com.eazybytes.accounts.dto.ErrorResponseDto;
 import com.eazybytes.accounts.dto.ResponseDto;
 import com.eazybytes.accounts.service.IAccountsService;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -210,6 +211,7 @@ public class AccountsController {
             )
     }
     )
+    @RateLimiter(name = "getJavaVersion", fallbackMethod = "getJavaVersionFallback")
     @GetMapping("/java-version")
     public ResponseEntity<String> getJavaVersion() {
         return ResponseEntity.status(HttpStatus.OK).body(environment.getProperty("JAVA_HOME"));
@@ -222,5 +224,9 @@ public class AccountsController {
 
     public ResponseEntity<String> getBuildInfoFallback(Throwable throwable) {
         return ResponseEntity.status(HttpStatus.OK).body("0.9");
+    }
+
+    public ResponseEntity<String> getJavaVersion(Throwable throwable) {
+        return ResponseEntity.status(HttpStatus.OK).body("Java 17");
     }
 }
