@@ -271,7 +271,7 @@ services:
       service: microservice-db-config
 
   accounts:
-    image: "dpereira97/accounts:s11"
+    image: "dpereira97/accounts:s11.2"
     container_name: accounts-ms
     ports:
       - "8080:8080"
@@ -294,7 +294,7 @@ services:
       service: microservice-eureka-config
 
   loans:
-    image: "dpereira97/loans:s11"
+    image: "dpereira97/loans:s11.2"
     container_name: loans-ms
     ports:
       - "8090:8090"
@@ -317,7 +317,7 @@ services:
       SPRING_DATASOURCE_URL: "jdbc:mysql://loansdb:3306/loansdb"
 
   #  loans1:
-  #    image: "dpereira97/loans:s11"
+  #    image: "dpereira97/loans:s11.2"
   #    container_name: loans-ms1
   #    ports:
   #      - "8091:8090"
@@ -334,7 +334,7 @@ services:
   #      SPRING_DATASOURCE_URL: "jdbc:mysql://loansdb:3306/loansdb"
 
   cards:
-    image: "dpereira97/cards:s11"
+    image: "dpereira97/cards:s11.2"
     container_name: cards-ms
     ports:
       - "9000:9000"
@@ -357,7 +357,7 @@ services:
       SPRING_DATASOURCE_URL: "jdbc:mysql://cardsdb:3306/cardsdb"
 
   configserver:
-    image: "dpereira97/configserver:s11"
+    image: "dpereira97/configserver:s11.2"
     container_name: configserver-ms
     ports:
       - "8071:8071"
@@ -375,7 +375,7 @@ services:
       service: microservice-base-config
 
   eurekaserver:
-    image: "dpereira97/eurekaserver:s11"
+    image: "dpereira97/eurekaserver:s11.2"
     container_name: eurekaserver-ms
     ports:
       - "8070:8070"
@@ -395,7 +395,7 @@ services:
       SPRING_APPLICATION_NAME: "eurekaserver"
 
   gatewayserver:
-    image: "dpereira97/gatewayserver:s11"
+    image: "dpereira97/gatewayserver:s11.2"
     container_name: gatewayserver-ms
     ports:
       - "8072:8072"

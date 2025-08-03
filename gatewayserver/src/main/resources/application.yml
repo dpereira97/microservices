@@ -25,20 +25,23 @@ management:
   info:
     env:
       enabled: true
-
-
+  metrics:
+    tags:
+      application: ${spring.application.name}
 
 info:
   app:
     name: "gatewayserver"
-    description: "Gateway Application"
-    version: 1.0.0
+    description: "Eazy Bank Gateway Server Application"
+    version: "1.0.0"
 
 logging:
   level:
     com:
       eazybytes:
         gatewayserver: DEBUG
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
 
 resilience4j:
   circuitbreaker:
