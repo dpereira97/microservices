@@ -1,4 +1,19 @@
 services:
+  rabbit:
+    image: rabbitmq:4.0-management
+    hostname: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: rabbitmq-diagnostics check_port_connectivity
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+    extends:
+      file: common-config.yml
+      service: network-deploy-service
   keycloak:
     image: quay.io/keycloak/keycloak:26.0.7
     container_name: keycloak
@@ -15,9 +30,9 @@ services:
     image: grafana/loki:3.1.2
     command: "-config.file=/etc/loki/config.yaml -target=read"
     ports:
-      - 3101:3100
-      - 7946
-      - 9095
+      - "3101:3100"
+      - "7946"
+      - "9095"
     volumes:
       - ../observability/loki/loki-config.yaml:/etc/loki/config.yaml
     depends_on:
@@ -284,7 +299,7 @@ services:
       service: microservice-db-config
 
   accounts:
-    image: "dpereira97/accounts:s12"
+    image: "dpereira97/accounts:s13"
     container_name: accounts-ms
     #    ports:
     #      - "8080:8080"
@@ -299,16 +314,21 @@ services:
         condition: service_healthy
       accountsdb:
         condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+      rabbit:
+        condition: service_healthy
     environment:
       SPRING_APPLICATION_NAME: "accounts"
       SPRING_DATASOURCE_URL: "jdbc:mysql://accountsdb:3306/accountsdb"
       OTEL_SERVICE_NAME: "accounts"
+      SPRING_RABBITMQ_HOST: "rabbit"
     extends:
       file: common-config.yml
       service: microservice-eureka-config
 
   loans:
-    image: "dpereira97/loans:s12"
+    image: "dpereira97/loans:s13"
     container_name: loans-ms
     #    ports:
     #      - "8090:8090"
@@ -332,7 +352,7 @@ services:
       OTEL_SERVICE_NAME: "loans"
 
   #  loans1:
-  #    image: "dpereira97/loans:s12"
+  #    image: "dpereira97/loans:s13"
   #    container_name: loans-ms1
   #    ports:
   #      - "8091:8090"
@@ -349,7 +369,7 @@ services:
   #      SPRING_DATASOURCE_URL: "jdbc:mysql://loansdb:3306/loansdb"
 
   cards:
-    image: "dpereira97/cards:s12"
+    image: "dpereira97/cards:s13"
     container_name: cards-ms
     #    ports:
     #      - "9000:9000"
@@ -373,7 +393,7 @@ services:
       OTEL_SERVICE_NAME: "cards"
 
   configserver:
-    image: "dpereira97/configserver:s12"
+    image: "dpereira97/configserver:s13"
     container_name: configserver-ms
     ports:
       - "8071:8071"
@@ -393,7 +413,7 @@ services:
       OTEL_SERVICE_NAME: "configserver"
 
   eurekaserver:
-    image: "dpereira97/eurekaserver:s12"
+    image: "dpereira97/eurekaserver:s13"
     container_name: eurekaserver-ms
     ports:
       - "8070:8070"
@@ -414,7 +434,7 @@ services:
       OTEL_SERVICE_NAME: "eurekaserver"
 
   gatewayserver:
-    image: "dpereira97/gatewayserver:s12"
+    image: "dpereira97/gatewayserver:s13"
     container_name: gatewayserver-ms
     ports:
       - "8072:8072"
@@ -440,11 +460,22 @@ services:
       SPRING_APPLICATION_NAME: "gatewayserver"
       OTEL_SERVICE_NAME: "gatewayserver"
       SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI: "http://keycloak:8080/realms/master/protocol/openid-connect/certs"
-#      SPRING_DATA_REDIS_CONNECT-TIMEOUT: 2s
-#      SPRING_DATA_REDIS_HOST: redis
-#      SPRING_DATA_REDIS_PORT: 6379
-#      SPRING_DATA_REDIS_TIMEOUT: 1s
+  #      SPRING_DATA_REDIS_CONNECT-TIMEOUT: 2s
+  #      SPRING_DATA_REDIS_HOST: redis
+  #      SPRING_DATA_REDIS_PORT: 6379
+  #      SPRING_DATA_REDIS_TIMEOUT: 1s
 
+  message:
+    image: "eazybytes/message:s13"
+    container_name: message-ms
+    depends_on:
+      rabbit:
+        condition: service_healthy
+    environment:
+      SPRING_RABBITMQ_HOST: "rabbit"
+    extends:
+      file: common-config.yml
+      service: network-deploy-service
 
 networks:
   network_example:

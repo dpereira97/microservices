@@ -21,3 +21,7 @@ cd ..
 cd gatewayserver
 mvn compile jib:dockerBuild
 docker image push docker.io/dpereira97/gatewayserver:$1
+cd ..
+cd message
+mvn compile jib:dockerBuild
+docker image push docker.io/dpereira97/message:$1

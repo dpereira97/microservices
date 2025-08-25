@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
     `branch_address` varchar(200) NOT NULL,
     `created_at` date NOT NULL,
     `created_by` varchar(20) NOT NULL,
+    `communication_sw` BOOLEAN,
     `updated_at` date DEFAULT NULL,
     `updated_by` varchar(20) DEFAULT NULL
     );

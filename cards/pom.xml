@@ -132,7 +132,7 @@
 				<version>3.4.5</version>
 				<configuration>
 					<to>
-						<image>dpereira97/${project.artifactId}:s12</image>
+						<image>dpereira97/${project.artifactId}:s13</image>
 					</to>
 				</configuration>
 			</plugin>
