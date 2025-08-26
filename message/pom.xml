@@ -55,9 +55,13 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-stream</artifactId>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.cloud</groupId>-->
+<!--			<artifactId>spring-cloud-stream-binder-rabbit</artifactId>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+			<artifactId>spring-cloud-stream-binder-kafka</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -94,7 +98,7 @@
 				<version>3.4.2</version>
 				<configuration>
 					<to>
-						<image>dpereira97/${project.artifactId}:s13</image>
+						<image>dpereira97/${project.artifactId}:s14</image>
 					</to>
 				</configuration>
 			</plugin>
