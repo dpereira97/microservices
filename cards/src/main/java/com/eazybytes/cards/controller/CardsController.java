@@ -3,9 +3,9 @@ package com.eazybytes.cards.controller;
 import com.eazybytes.cards.constants.CardsConstants;
 import com.eazybytes.cards.dto.AccountsContactInfoDto;
 import com.eazybytes.cards.dto.CardsDto;
-import com.eazybytes.cards.dto.ErrorResponseDto;
 import com.eazybytes.cards.dto.ResponseDto;
 import com.eazybytes.cards.service.ICardsService;
+import com.eazybytes.common.dto.ErrorResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -64,7 +64,8 @@ public class CardsController {
                     responseCode = "500",
                     description = "HTTP Status Internal Server Error",
                     content = @Content(
-                            schema = @Schema(implementation = ErrorResponseDto.class)
+                            schema = @Schema(implementation =
+                                    ErrorResponseDto.class)
                     )
             )
     }
